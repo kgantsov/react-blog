@@ -1,3 +1,4 @@
+import math
 
 from flask import abort
 from flask import request
@@ -93,9 +94,16 @@ def get_posts():
     offset = 0 if page == 1 else page * per_page - per_page
 
     posts = list(POSTS.values())[offset:offset + per_page]
-    return {
-        'posts': posts
+
+    total_pages = int(math.ceil(len(POSTS) / per_page))
+
+    meta = {
+        'page': page,
+        'total_pages': total_pages,
+        'per_page': per_page,
     }
+
+    return {'posts': posts, 'meta': meta}, 200, {'Access-Control-Allow-Origin': '*'}
 
 
 @api_bp.route('/post/<int:post_id>', methods=['GET'])
@@ -107,6 +115,4 @@ def get_post(post_id):
     except IndexError:
         abort(404)
 
-    return {
-        'post': post
-    }
+    return {'post': post}, 200, {'Access-Control-Allow-Origin': '*'}

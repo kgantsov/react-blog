@@ -1,0 +1,51 @@
+{
+  "name": "rtest",
+  "version": "0.4.0",
+  "description": "my React.js boilerplate",
+  "scripts": {
+    "watch": "watchify -d app/browser.js -o dist/bundle.js -v",
+    "build": "browserify -d app/browser.js > dist/bundle.js",
+    "start": "babel-node app/server",
+    "test": "jest",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Konstantin Gantsov",
+  "license": "MIT",
+  "homepage": "https://github.com/kgantsov/react-blog",
+  "devDependencies": {
+    "babel-jest": "^4.0.0",
+    "jest-cli": "^0.4.0",
+    "watchify": "^2.6.0"
+  },
+  "dependencies": {
+    "axios": "^0.5.4",
+    "babel": "^4.7.16",
+    "babelify": "^5.0.4",
+    "browserify": "^9.0.3",
+    "classnames": "^1.2.0",
+    "express": "^4.12.3",
+    "object-assign": "^2.0.0",
+    "react": "^0.13.1",
+    "react-router": "^0.13.1",
+    "when": "3.5.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify"
+      ]
+    ]
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "node_modules/react"
+    ]
+  },
+  "engines": {
+    "node": "0.12.0"
+  }
+}
