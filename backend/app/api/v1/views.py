@@ -106,7 +106,7 @@ def get_posts():
     return {'posts': posts, 'meta': meta}, 200, {'Access-Control-Allow-Origin': '*'}
 
 
-@api_bp.route('/post/<int:post_id>', methods=['GET'])
+@api_bp.route('/post/<int:post_id>/', methods=['GET'])
 @json
 def get_post(post_id):
 
