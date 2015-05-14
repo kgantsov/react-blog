@@ -3,8 +3,8 @@
   "version": "0.4.0",
   "description": "my React.js boilerplate",
   "scripts": {
-    "watch": "watchify -d app/browser.js -o dist/bundle.js -v",
-    "build": "browserify -d app/browser.js > dist/bundle.js",
+    "watch": "watchify -d app/browser.js -o static/bundle.js -v",
+    "build": "browserify -d app/browser.js > static/bundle.js",
     "start": "babel-node app/server",
     "test": "jest",
     "postinstall": "npm run build"

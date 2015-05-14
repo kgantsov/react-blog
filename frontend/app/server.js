@@ -8,7 +8,7 @@ import fetchData from './utils/fetchData';
 const app = express();
 
 
-app.use(express.static(__dirname + '/../dist'));
+app.use(express.static(__dirname + '/../static'));
 app.get('/favicon.ico', (req, res) => { res.send('') });
 
 app.use((req, res) => {
