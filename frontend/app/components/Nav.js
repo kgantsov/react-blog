@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import classSet from 'classnames';
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
   static get propTypes() {
     return {
       current: React.PropTypes.string
@@ -44,3 +44,5 @@ export default class Nav extends React.Component {
     );
   }
 }
+
+export default Nav;

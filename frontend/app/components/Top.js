@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Top extends React.Component {
+class Top extends React.Component {
   render() {
     return (
       <div>
@@ -11,3 +11,5 @@ export default class Top extends React.Component {
     );
   }
 }
+
+export default Top;

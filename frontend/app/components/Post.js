@@ -3,13 +3,11 @@ import {Link} from 'react-router';
 
 import api from '../utils/api';
 
-export default React.createClass({
-  statics: {
-    fetchData: function(params, query) {
-      let res = api.get(`/post/${params.id}/`);
-      return res;
-    }
-  },
+class Post extends React.Component {
+  static fetchData(params, query) {
+    let res = api.get(`/post/${params.id}/`);
+    return res;
+  }
 
   render() {
     let post = '';
@@ -37,4 +35,6 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+export default Post;

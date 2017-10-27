@@ -3,7 +3,7 @@ import {RouteHandler} from 'react-router';
 import Nav            from './Nav';
 import Footer         from './Footer';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     const title = `Artist Top Tracks`;
     return (
@@ -30,3 +30,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;

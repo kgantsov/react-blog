@@ -3,14 +3,12 @@ import {Link} from 'react-router';
 
 import api from '../utils/api';
 
-export default React.createClass({
-  statics: {
-    fetchData: function(params, query) {
-      let page = query.page || 1;
-      let res = api.get(`/post/?per_page=5&page=${page}`);
-      return res;
-    }
-  },
+class Posts extends React.Component {
+  static fetchData(params, query) {
+    let page = query.page || 1;
+    let res = api.get(`/post/?per_page=3&page=${page}`);
+    return res;
+  }
 
   render() {
     let posts = '';
@@ -19,14 +17,13 @@ export default React.createClass({
     if (this.props.data !== undefined) {
       posts = this.props.data.posts.posts.map((post, index) => {
         return (
-          <div className="bs-docs-section" key={index}>
+          <div className="bs-docs-section" key={post.id}>
             <h2 id="grid" className="page-header">
               <Link to="post" params={{id: post.id}}>
                 {post.title}
               </Link>
             </h2>
-            <p className="lead">
-              {post.description}
+            <p key={post.id} className="lead" dangerouslySetInnerHTML={{__html: post.description}}>
             </p>
           </div>
         );
@@ -84,4 +81,6 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+export default Posts;
