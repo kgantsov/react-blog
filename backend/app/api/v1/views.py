@@ -12,7 +12,8 @@ POSTS = {
     1: {
         'id': 1,
         'title': 'Post 1',
-        'description': 'Description 1',
+        'description': '<p><p>Description 1</p><iframe frameborder="0" height="349" src="https://www.youtube.com/embed/2gWIjRqvtnI" width="620"></iframe></p>',
+        # 'description': 'Description 1',
         'author': 'Author 1',
     },
     2: {
@@ -82,7 +83,6 @@ POSTS = {
         'author': 'Author 12',
     },
 }
-
 
 
 @api_bp.route('/post/', methods=['GET'])
