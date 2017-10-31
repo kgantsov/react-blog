@@ -1,7 +1,6 @@
 import React from 'react';
 import 'isomorphic-fetch';
 import Link from 'next/link';
-import { parse } from 'url';
 import Nav from '../components/nav';
 
 export default class extends React.Component {
