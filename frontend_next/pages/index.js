@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Nav from '../components/nav';
 
-export default props => (
+const Index = props => (
   <div>
     <Head>
       <title>This is index page</title>
@@ -12,3 +12,11 @@ export default props => (
     <p>Welcome to next.js!</p>
   </div>
 );
+
+Index.propTypes = {
+  url: React.PropTypes.shape({
+    pathname: React.PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default Index;

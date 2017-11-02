@@ -3,7 +3,7 @@ import 'isomorphic-fetch';
 import Link from 'next/link';
 import Nav from '../components/nav';
 
-export default class extends React.Component {
+class Posts extends React.Component {
   static async getInitialProps({ query }) {
     let { page } = query;
     let perPage = query.per_page;
@@ -73,3 +73,16 @@ export default class extends React.Component {
     );
   }
 }
+
+Posts.propTypes = {
+  posts: React.PropTypes.array.isRequired,
+  meta: React.PropTypes.shape({
+    page: React.PropTypes.number.isRequired,
+    total_pages: React.PropTypes.number.isRequired,
+  }).isRequired,
+  url: React.PropTypes.shape({
+    pathname: React.PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default Posts;

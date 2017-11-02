@@ -3,7 +3,7 @@ import 'isomorphic-fetch';
 import Link from 'next/link';
 import Nav from '../components/nav';
 
-export default class extends React.Component {
+class Post extends React.Component {
   static async getInitialProps({ query: { id } }) {
     const res = await fetch(`http://0.0.0.0:8000/api/v1/post/${id}/`);
     const json = await res.json();
@@ -33,3 +33,16 @@ export default class extends React.Component {
     );
   }
 }
+
+Post.propTypes = {
+  post: React.PropTypes.shape({
+    id: React.PropTypes.number.isRequired,
+    title: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string.isRequired,
+  }).isRequired,
+  url: React.PropTypes.shape({
+    pathname: React.PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default Post;
